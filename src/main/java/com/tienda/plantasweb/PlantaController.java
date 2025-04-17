@@ -1,24 +1,36 @@
 package com.tienda.plantasweb;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
-@RestController
-@RequestMapping("/api/plantas")
+@Controller
 public class PlantaController {
 
     @Autowired
     private PlantaService plantaService;
 
-    @PostMapping
-    public Planta registrarPlanta(@RequestBody Planta planta) {
-        return plantaService.registrarPlanta(planta);
+    @GetMapping("/registrar")
+    public String mostrarFormulario() {
+        return "registrar";
     }
 
-    @GetMapping
-    public List<Planta> obtenerInventario() {
-        return plantaService.obtenerInventario();
+    @PostMapping("/registrar")
+    public String registrarPlanta(
+            @RequestParam("tipo") String tipo,
+            @RequestParam("nombre") String nombre,
+            @RequestParam("cantidad") int cantidad,
+            @RequestParam("precioBase") double precioBase) {
+
+        Planta planta = PlantaFactory.crearPlanta(tipo, nombre, cantidad, precioBase);
+        plantaService.registrarPlanta(planta);
+        return "redirect:/inventario";
+    }
+
+    @GetMapping("/inventario")
+    public String mostrarInventario(Model model) {
+        model.addAttribute("plantas", plantaService.obtenerInventario());
+        return "inventario";
     }
 }

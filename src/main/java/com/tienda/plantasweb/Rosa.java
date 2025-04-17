@@ -8,23 +8,23 @@ package com.tienda.plantasweb;
  *
  * @author Usuario
  */
-public class Rosa extends Planta{
+public class Rosa extends Planta {
 
-    public Rosa(String nombre,int cantidad, double precioBase) {
-        super(nombre,cantidad, precioBase);
+    public Rosa() {
+    }
+
+    public Rosa(String nombre, int cantidad, double precioBase) {
+        super(nombre, cantidad, precioBase);
     }
 
     @Override
     public void mostrarInfo() {
         System.out.println("rosa: " + nombre);
         System.out.println("Cantidad: " + cantidad);
-                
     }
 
     @Override
     public double calcularPrecioVenta() {
-       return precioBase * 1.0;
-
+        return precioBase * 1.0;
     }
-    
 }

@@ -8,22 +8,24 @@ package com.tienda.plantasweb;
  *
  * @author Usuario
  */
-public class Cactus extends Planta{
+public class Cactus extends Planta {
+
+    // Constructor vacío requerido por JPA
+    public Cactus() {
+    }
 
     public Cactus(String nombre, int cantidad, double precioBase) {
-        super(nombre,cantidad, precioBase);
+        super(nombre, cantidad, precioBase);
     }
 
     @Override
     public void mostrarInfo() {
         System.out.println("Cactus: " + nombre);
         System.out.println("Cantidad: " + cantidad);
-
     }
 
     @Override
     public double calcularPrecioVenta() {
         return precioBase * 1.3;
     }
-    
 }

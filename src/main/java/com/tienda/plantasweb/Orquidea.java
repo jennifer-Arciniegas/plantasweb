@@ -8,23 +8,23 @@ package com.tienda.plantasweb;
  *
  * @author Usuario
  */
-public class Orquidea extends Planta{
+public class Orquidea extends Planta {
 
-    public Orquidea(String nombre,int cantidad, double precioBase) {
-        super(nombre,cantidad, precioBase);
+    public Orquidea() {
+    }
+
+    public Orquidea(String nombre, int cantidad, double precioBase) {
+        super(nombre, cantidad, precioBase);
     }
 
     @Override
     public void mostrarInfo() {
         System.out.println("Orquidea: " + nombre);
         System.out.println("Cantidad: " + cantidad);
-                
     }
 
     @Override
     public double calcularPrecioVenta() {
-       return precioBase * 1.5;
-
+        return precioBase * 1.5;
     }
-    
 }
