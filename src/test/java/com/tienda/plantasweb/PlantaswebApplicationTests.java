@@ -1,13 +1,12 @@
 package com.tienda.plantasweb;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+   import org.junit.jupiter.api.Test;
+   import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
-class PlantaswebApplicationTests {
+   @SpringBootTest
+   class PlantaswebApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
-
-}
+       @Test
+       void contextLoads() {
+       }
+   }

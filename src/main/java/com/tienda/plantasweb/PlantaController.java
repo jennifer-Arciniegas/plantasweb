@@ -13,7 +13,7 @@ public class PlantaController {
 
     @GetMapping("/registrar")
     public String mostrarFormulario() {
-        return "registrar";
+        return "formulario-registrar";
     }
 
     @PostMapping("/registrar")
@@ -32,5 +32,11 @@ public class PlantaController {
     public String mostrarInventario(Model model) {
         model.addAttribute("plantas", plantaService.obtenerInventario());
         return "inventario";
+    }
+
+    @PostMapping("/eliminar/{id}")
+    public String eliminarPlanta(@PathVariable Long id) {
+        
+        return "redirect:/inventario";
     }
 }
